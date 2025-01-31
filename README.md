@@ -118,7 +118,7 @@ width="200px;" alt="유지은"/>
 - 시각화 부분
   ### Feature 별 중요도
     ![fi](https://github.com/user-attachments/assets/5eca039d-ff5f-4248-92c4-945c605aad08)
-  ### 혼동행렬 (정밀도 재현율 포함)
+  ### 혼동행렬과 평가 지표
     ![cm](https://github.com/user-attachments/assets/82a19a29-f574-4227-959a-4a86f3c3a581)
   ```
                     precision    recall  f1-score   support
