@@ -26,8 +26,8 @@
           <img src="https://github.com/user-attachments/assets/1f1060b9-993e-4bb4-99c7-bfb28a28dc5f" width="200px;" alt="유지은"/>
         </div>
       </td>
-      <td align="center">
-        <img src="https://github.com/user-attachments/assets/1467a6a0-bfbd-492a-93b9-91084b271837" width="200px;" alt="전성원"/>
+      <td align="center" style="padding:25px;">
+        <img src="https://github.com/user-attachments/assets/1467a6a0-bfbd-492a-93b9-91084b271837" width="200px;" height="150px" alt="전성원"/>
       </td>
       <td align="center">
         <img src="https://github.com/user-attachments/assets/46a3b2cc-1a09-47a5-a50d-294dd48e9830" width="200px;" alt="허정윤"/>
