@@ -74,25 +74,7 @@ width="200px;" alt="유지은"/>
 
 # 2. Data Pre-Processing
 
-- EDA에서 전처리를 진행한 데이터 사용 ([eda_2team](https://github.com/Encore-SKN-9/eda_2team?tab=readme-ov-file#2-data-pre-processing))
-- 예측을 위한 Profit, Hit 컬럼 생성
-  - Profit : 수익 / 예산 * 100 (임시 컬럼)
-  - Hit(흥행여부) : Profit ≥ 100 (True/False Boolean List)
-- 학습할 Feature List
-  - **budget** (예산)
-  - **directors** (감독)
-  - **writers** (작가)
-  - **stars** (배우)
-  - **production_companies** (제작사)
-  - **Category** (카테고리 (큰 장르))
-- 삭제한 Feature List
-  - 국가, 촬영지, 언어, 수상 정보, 평점 정보 Feature 삭제
-  - genres Feature의 경우 Category Feature로 대체
-- 학습에 사용하지 않은 데이터
-  - 영화 등급, 개봉년도, 상영시간 Feature의 경우 관련도가 낮다고 판단하여 미사용
-- 인코딩
-  - 감독, 작가, 배우, 제작사의 경우 콤마를 구분으로 데이터가 존재함 ex) “봉준호, 하정우”
-  - 콤마를 포함하여 학슴을 진행할 경우 학습의 정확도(흥행과의 상관관계) 가 떨어질 수 있음
+- EDA에서 전처리를 진행한 데이터 사용 ([eda_2team](https://github.c습을 진행할 경우 학습의 정확도(흥행과의 상관관계) 가 떨어질 수 있음
   - 콤마로 구분된 값 중 첫번째 값만 채택하도록 전처리 진행
         
     ```py
