@@ -113,8 +113,15 @@
     - 데이터가 **비선형적 관계를 포함** → 트리 기반 모델이 유리
     - LGBM은 **원-핫 인코딩 없이도 범주형 변수 처리 가능**
 - GridSearchCV 방식을 통하여 최적의 하이퍼 파라메터 도출
-   ```json
-     {"learning_rate": 0.05, "max_depth": 5, "n_estimators": 500, "num_leaves": 31}
+   ```python
+   param_grid = {
+    'num_leaves': [7, 15, 31, 63, 127],
+    'learning_rate': [0.01, 0.05, 0.1],
+    'n_estimators': [100, 200, 500],
+    'max_depth': [3, 5, 7],
+    'random_state': [42]
+  }
+   # Best Prams : {"learning_rate": 0.05, "max_depth": 5, "n_estimators": 500, "num_leaves": 31}
    ```
 ### 시각화 부분
   ### Feature 별 중요도 
