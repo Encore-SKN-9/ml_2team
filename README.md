@@ -155,57 +155,65 @@
 ```
 --- Prediction Result ---
 --------------------------------------------------
-Title:  470. Hit Man
+Title:  29. The Conjuring 2
 --------------------------------------------------
-Data 1: Not Hit (4.72%)
-Actual Value: Not Hit
+Data 1: Hit (88.11%)
+Actual Value: Hit 예측 성공 
+
 --------------------------------------------------
-Title:  183. A Hidden Life
+Title:  3. Star Wars: Episode IX - The Rise of Skywalker
 --------------------------------------------------
-Data 2: Not Hit (8.80%)
-Actual Value: Not Hit
+Data 2: Hit (68.81%)
+Actual Value: Hit 예측 성공 
+
 --------------------------------------------------
-Title:  1. Avatar
+Title:  227. Agora
 --------------------------------------------------
-Data 3: Hit (94.46%)
-Actual Value: Hit
+Data 3: Not Hit (10.15%)
+Actual Value: Not Hit 예측 성공 
+
 --------------------------------------------------
-Title:  420. Appropriate Behavior
+Title:  405. The Great Buster
 --------------------------------------------------
-Data 4: Not Hit (8.00%)
-Actual Value: Not Hit
+Data 4: Not Hit (2.52%)
+Actual Value: Not Hit 예측 성공 
+
 --------------------------------------------------
-Title:  388. Before the Sunset
+Title:  297. Yo-kai Watch Movie: It's the Secret of Birth, Meow!
 --------------------------------------------------
-Data 5: Not Hit (5.45%)
-Actual Value: Not Hit
+Data 5: Not Hit (0.08%)
+Actual Value: Not Hit 예측 성공
 
 --- Prediction Result ---
 --------------------------------------------------
-Title:  56. Jupiter Ascending
+Title:  223. Wendy and Lucy
 --------------------------------------------------
-Data 1: Hit (88.06%)
-Actual Value: Hit
+Data 1: Not Hit (49.27%)
+Actual Value: Hit 예측 실패 
+
 --------------------------------------------------
-Title:  203. Frank and Ava
+Title:  102. Man on a Ledge
 --------------------------------------------------
-Data 2: Not Hit (18.20%)
-Actual Value: Not Hit
+Data 2: Hit (85.47%)
+Actual Value: Hit 예측 성공 
+
 --------------------------------------------------
-Title:  527. Senior Year
+Title:  15. Lightyear
 --------------------------------------------------
-Data 3: Not Hit (6.33%)
-Actual Value: Not Hit
+Data 3: Not Hit (42.83%)
+Actual Value: Hit 예측 실패 
+
 --------------------------------------------------
-Title:  26. The Mummy: Tomb of the Dragon Emperor
+Title:  71. Are You There God? It's Me, Margaret.
 --------------------------------------------------
-Data 4: Hit (88.62%)
-Actual Value: Hit
+Data 4: Not Hit (43.74%)
+Actual Value: Not Hit 예측 성공 
+
 --------------------------------------------------
-Title:  79. Bonhoeffer: Pastor. Spy. Assassin.
+Title:  351. MR-9: Do or Die
 --------------------------------------------------
-Data 5: Not Hit (2.97%)
-Actual Value: Not Hit
+Data 5: Not Hit (0.08%)
+Actual Value: Not Hit 예측 성공 
 ```
 # 5. Expectations (기대 효과)
   - 제작사에게 영화 제작 관련 가이드 제공
