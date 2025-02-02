@@ -119,9 +119,8 @@
     'learning_rate': [0.01, 0.05, 0.1],
     'n_estimators': [100, 200, 500],
     'max_depth': [3, 5, 7],
-    'random_state': [42]
   }
-   # Best Prams : {"learning_rate": 0.05, "max_depth": 5, "n_estimators": 500, "num_leaves": 31}
+   # Best parameters: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 500, 'num_leaves': 15}
    ```
 ## 시각화 부분
   ### Feature 별 중요도 
