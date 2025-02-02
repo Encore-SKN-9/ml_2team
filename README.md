@@ -106,9 +106,9 @@
 | **KNeighborsClassifier** | **77.24%** | **77.94%** | - |
 | **RandomForest** | **79%** | - | 0.52 |
 | **XGBoost** | **80.37%** | **77.62%** | **0.59 → 0.62 (개선됨)** |
-| **LGBMClassifier** | **79.90%** | **80.88%** | **0.54 → 0.59 (개선됨)** |
+| **LGBMClassifier** | **81.91%** | **82.66%** | **0.54 → 0.62 (개선됨)** |
   - 사용한 분류 모델 중 LGBMClassifier 모델이 가장 높은 성능을 도출
-    - 하이퍼 파라메터 튜닝을 통하여 약81%의 정확도 달성 (0.98%의 성능 향상)
+    - 하이퍼 파라메터 튜닝을 통하여 약83%의 정확도 달성 (0.75%의 성능 향상)
   - LGBMClassifier의 성능이 가장 높았던 이유
     - 데이터가 **비선형적 관계를 포함** → 트리 기반 모델이 유리
     - LGBM은 **원-핫 인코딩 없이도 범주형 변수 처리 가능**
@@ -123,31 +123,31 @@
   }
    # Best Prams : {"learning_rate": 0.05, "max_depth": 5, "n_estimators": 500, "num_leaves": 31}
    ```
-### 시각화 부분
+## 시각화 부분
   ### Feature 별 중요도 
-  ![fi](https://github.com/user-attachments/assets/5eca039d-ff5f-4248-92c4-945c605aad08)
+  ![output](https://github.com/user-attachments/assets/fda3bf24-5f89-4826-9751-6306a30cb6ce)
   ### 혼동행렬과 평가 지표
-  ![cm](https://github.com/user-attachments/assets/82a19a29-f574-4227-959a-4a86f3c3a581)
+  ![cm](https://github.com/user-attachments/assets/47a644b0-624a-45ff-a2ec-3822313c35d3)
   ```
-                    precision    recall  f1-score   support
+              precision    recall  f1-score   support
 
-               0       0.84      0.92      0.88      1568
-               1       0.69      0.51      0.59       572
+           0       0.84      0.93      0.89      1568
+           1       0.75      0.53      0.62       572
 
-        accuracy                           0.81      2140
-       macro avg       0.77      0.71      0.73      2140
-    weighted avg       0.80      0.81      0.80      2140
+    accuracy                           0.83      2140
+   macro avg       0.80      0.73      0.75      2140
+weighted avg       0.82      0.83      0.82      2140
   ```
   ##### 평가지표 분석
   - 1 클래스 (흥행 성공) 부분에서 Recall(재현율)이 낮아 데이터 증강 혹은 가중치 조정을 고려해야함
-    - Precision (정밀도): 0.69
-      - 모델이 예측한 1 클래스 중에서 69%가 실제로 1 클래스임.
-    - Recall (재현율): 0.51
-      - 실제 1 클래스 중에서 51%만 모델이 1로 정확히 예측함.
-    - F1-Score: 0.59
+    - Precision (정밀도): 0.75
+      - 모델이 예측한 1 클래스 중에서 75%가 실제로 1 클래스임.
+    - Recall (재현율): 0.53
+      - 실제 1 클래스 중에서 53%만 모델이 1로 정확히 예측함.
+    - F1-Score: 0.62
       - Precision과 Recall의 조화 평균으로, 1 클래스의 예측 성능이 다소 낮음을 보여줌.
   ### ROC 커브 → 이진 분류의 성능을 나타낸 지표 (True Positive와 False Positive의 비율)
-  ![roc](https://github.com/user-attachments/assets/2dcaf7c9-6453-4577-aa04-c00d5f043a2a)
+  ![roc](https://github.com/user-attachments/assets/2f69ec36-367c-4311-b719-a8f0bdeb3a29)
   - AUC 가 1에 가까울수록 좋은 성능
   - 0.7 이상의 경우 쓸만한 성능 → 0.84
 
