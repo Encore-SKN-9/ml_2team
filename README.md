@@ -121,7 +121,7 @@
   }
    # Best parameters: {'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 500, 'num_leaves': 15}
    ```
-## 시각화 부분
+### LightGBM 성능 시각화
   ### Feature 별 중요도 
   ![output](https://github.com/user-attachments/assets/fda3bf24-5f89-4826-9751-6306a30cb6ce)
   ### 혼동행렬과 평가 지표
