@@ -70,9 +70,9 @@
 
 >EDA에서 전처리를 진행한 데이터 사용 ([eda_2team](https://github.com/Encore-SKN-9/eda_2team?tab=readme-ov-file#2-data-pre-processing))
 ### 삭제하거나 사용하지 않은 Feature List
-  - 국가, 촬영지, 언어, 수상 정보, 평점 정보 Feature 삭제
+  - 국가, 촬영지, 언어, 수상 정보, 평점 정보, 북미/주말 수익 Feature 삭제
   - genres Feature의 경우 Category Feature로 대체
-  - 영화 등급, 개봉년도, 상영시간 Feature의 경우 관련도가 낮다고 판단하여 삭제
+  - 영화 등급, 개봉년도, 상영시간 Feature 삭제
 ### 학습한 Feature List
   - **budget** (예산)
   - **directors** (감독)
