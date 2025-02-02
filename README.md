@@ -68,13 +68,12 @@
 
 # 2. Data Pre-Processing (데이터 전처리)
 
-- EDA에서 전처리를 진행한 데이터 사용 ([eda_2team](https://github.com/Encore-SKN-9/eda_2team?tab=readme-ov-file#2-data-pre-processing))
-### 삭제한 Feature List
+>EDA에서 전처리를 진행한 데이터 사용 ([eda_2team](https://github.com/Encore-SKN-9/eda_2team?tab=readme-ov-file#2-data-pre-processing))
+### 삭제하거나 사용하지 않은 Feature List
   - 국가, 촬영지, 언어, 수상 정보, 평점 정보 Feature 삭제
   - genres Feature의 경우 Category Feature로 대체
-### Unused Data
-  - 영화 등급, 개봉년도, 상영시간 Feature의 경우 관련도가 낮다고 판단하여 미사용
-### 학습할 Feature List
+  - 영화 등급, 개봉년도, 상영시간 Feature의 경우 관련도가 낮다고 판단하여 삭제
+### 학습한 Feature List
   - **budget** (예산)
   - **directors** (감독)
   - **writers** (작가)
@@ -90,7 +89,7 @@
     df['directors'] = df['directors'].apply(lambda x: x.split(',')[0])
     ```
         
-  - 문자열로 된 컬럼(감독, 작가, 배우, 제작사, 카테고리)을 Label Encoding 진행
+  - 문자열로 된 컬럼(**감독, 작가, 배우, 제작사, 카테고리**)을 **Label Encoding** 진행
 ### 예측을 위한 Profit, Hit 컬럼 생성
   - Profit : 수익 / 예산 * 100
   - Hit(흥행여부) : Profit ≥ 100 (True/False Boolean List)
@@ -98,30 +97,30 @@
   - 위에서 생성한 **Hit** 컬럼
 
 # 3. Using Model and Performances
+### 모델별 성능
 | 모델 | 개선 전 정확도 | 개선 후 정확도 | 흥행(1) F1-score 개선 |
 |------|-------------|-------------|-----------|
-| **SVM(SVC)** | **75%** | - | - |
-| **RandomForest** | **79%** | - | 0.52 |
-| **KNeighborsClassifier** | **77.24%** | **77.94%** | - |
 | **LogisticRegression** | **72.29%** | **54.21%** | **0.00 → 0.42 (개선됨)** |
+| **SVM(SVC)** | **73.27%** | - | - |
+| **DecisionTreeClassifier** | **75%** | - | - |
+| **KNeighborsClassifier** | **77.24%** | **77.94%** | - |
+| **RandomForest** | **79%** | - | 0.52 |
 | **XGBoost** | **80.37%** | **77.62%** | **0.59 → 0.62 (개선됨)** |
 | **LGBMClassifier** | **79.90%** | **80.88%** | **0.54 → 0.59 (개선됨)** |
   - 사용한 분류 모델 중 LGBMClassifier 모델이 가장 높은 성능을 도출
-  - 기본 모델 성능으로 약 80% 정확도 달성
-  - 하이퍼 파라메터 튜닝을 통하여 약81%의 정확도 달성 (0.98%의 성능 향상)
-- LGBMClassifier의 성능이 가장 높았던 이유
-  - 데이터가 **비선형적 관계를 포함** → 트리 기반 모델이 유리
-  - LGBM은 **원-핫 인코딩 없이도 범주형 변수 처리 가능**
+    - 하이퍼 파라메터 튜닝을 통하여 약81%의 정확도 달성 (0.98%의 성능 향상)
+  - LGBMClassifier의 성능이 가장 높았던 이유
+    - 데이터가 **비선형적 관계를 포함** → 트리 기반 모델이 유리
+    - LGBM은 **원-핫 인코딩 없이도 범주형 변수 처리 가능**
 - GridSearchCV 방식을 통하여 최적의 하이퍼 파라메터 도출
    ```json
      {"learning_rate": 0.05, "max_depth": 5, "n_estimators": 500, "num_leaves": 31}
    ```
-
-- 시각화 부분
-  ### Feature 별 중요도
-    ![fi](https://github.com/user-attachments/assets/5eca039d-ff5f-4248-92c4-945c605aad08)
+### 시각화 부분
+  ### Feature 별 중요도 
+  ![fi](https://github.com/user-attachments/assets/5eca039d-ff5f-4248-92c4-945c605aad08)
   ### 혼동행렬과 평가 지표
-    ![cm](https://github.com/user-attachments/assets/82a19a29-f574-4227-959a-4a86f3c3a581)
+  ![cm](https://github.com/user-attachments/assets/82a19a29-f574-4227-959a-4a86f3c3a581)
   ```
                     precision    recall  f1-score   support
 
@@ -132,16 +131,76 @@
        macro avg       0.77      0.71      0.73      2140
     weighted avg       0.80      0.81      0.80      2140
   ```
+  ##### 평가지표 분석
+  - 1 클래스 (흥행 성공) 부분에서 Recall(재현율)이 낮아 데이터 증강 혹은 가중치 조정을 고려해야함
+    - Precision (정밀도): 0.69
+      - 모델이 예측한 1 클래스 중에서 69%가 실제로 1 클래스임.
+    - Recall (재현율): 0.51
+      - 실제 1 클래스 중에서 51%만 모델이 1로 정확히 예측함.
+    - F1-Score: 0.59
+      - Precision과 Recall의 조화 평균으로, 1 클래스의 예측 성능이 다소 낮음을 보여줌.
   ### ROC 커브 → 이진 분류의 성능을 나타낸 지표 (True Positive와 False Positive의 비율)
-    ![roc](https://github.com/user-attachments/assets/2dcaf7c9-6453-4577-aa04-c00d5f043a2a)
-    - AUC 가 1에 가까울수록 좋은 성능
-    - 0.7 이상의 경우 쓸만한 성능 → 0.84
+  ![roc](https://github.com/user-attachments/assets/2dcaf7c9-6453-4577-aa04-c00d5f043a2a)
+  - AUC 가 1에 가까울수록 좋은 성능
+  - 0.7 이상의 경우 쓸만한 성능 → 0.84
 
 # 4. Predict Results (실제 예측 결과)
 ### 데이터 셋 중 무작위 데이터를 골라서 예측과 예측 확률을 표시
-<img width="702" alt="스크린샷 2025-02-02 오후 7 30 26" src="https://github.com/user-attachments/assets/abf8e908-2344-46dc-98ce-f8c4ba5e8a25" />
-<img width="614" alt="스크린샷 2025-02-02 오후 7 31 40" src="https://github.com/user-attachments/assets/ce56d2c8-721a-42d7-9a33-98b2e84db03a" />
+```
+--- Prediction Result ---
+--------------------------------------------------
+Title:  470. Hit Man
+--------------------------------------------------
+Data 1: Not Hit (4.72%)
+Actual Value: Not Hit
+--------------------------------------------------
+Title:  183. A Hidden Life
+--------------------------------------------------
+Data 2: Not Hit (8.80%)
+Actual Value: Not Hit
+--------------------------------------------------
+Title:  1. Avatar
+--------------------------------------------------
+Data 3: Hit (94.46%)
+Actual Value: Hit
+--------------------------------------------------
+Title:  420. Appropriate Behavior
+--------------------------------------------------
+Data 4: Not Hit (8.00%)
+Actual Value: Not Hit
+--------------------------------------------------
+Title:  388. Before the Sunset
+--------------------------------------------------
+Data 5: Not Hit (5.45%)
+Actual Value: Not Hit
 
+--- Prediction Result ---
+--------------------------------------------------
+Title:  56. Jupiter Ascending
+--------------------------------------------------
+Data 1: Hit (88.06%)
+Actual Value: Hit
+--------------------------------------------------
+Title:  203. Frank and Ava
+--------------------------------------------------
+Data 2: Not Hit (18.20%)
+Actual Value: Not Hit
+--------------------------------------------------
+Title:  527. Senior Year
+--------------------------------------------------
+Data 3: Not Hit (6.33%)
+Actual Value: Not Hit
+--------------------------------------------------
+Title:  26. The Mummy: Tomb of the Dragon Emperor
+--------------------------------------------------
+Data 4: Hit (88.62%)
+Actual Value: Hit
+--------------------------------------------------
+Title:  79. Bonhoeffer: Pastor. Spy. Assassin.
+--------------------------------------------------
+Data 5: Not Hit (2.97%)
+Actual Value: Not Hit
+```
 # 5. Expectations (기대 효과)
   - 제작사에게 영화 제작 관련 가이드 제공
   - 영화 제작간 영화 흥행 가능성에 대한 근거 자료
