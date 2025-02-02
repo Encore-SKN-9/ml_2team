@@ -128,14 +128,14 @@
   ### 혼동행렬과 평가 지표
   ![cm](https://github.com/user-attachments/assets/47a644b0-624a-45ff-a2ec-3822313c35d3)
   ```
-              precision    recall  f1-score   support
+                precision    recall  f1-score   support
 
-           0       0.84      0.93      0.89      1568
-           1       0.75      0.53      0.62       572
+             0       0.84      0.93      0.89      1568
+             1       0.75      0.53      0.62       572
 
-    accuracy                           0.83      2140
-   macro avg       0.80      0.73      0.75      2140
-weighted avg       0.82      0.83      0.82      2140
+      accuracy                           0.83      2140
+     macro avg       0.80      0.73      0.75      2140
+  weighted avg       0.82      0.83      0.82      2140
   ```
   ##### 평가지표 분석
   - 1 클래스 (흥행 성공) 부분에서 Recall(재현율)이 낮아 데이터 증강 혹은 가중치 조정을 고려해야함
