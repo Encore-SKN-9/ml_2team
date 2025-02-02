@@ -148,7 +148,7 @@
   ### ROC 커브 → 이진 분류의 성능을 나타낸 지표 (True Positive와 False Positive의 비율)
   ![roc](https://github.com/user-attachments/assets/2f69ec36-367c-4311-b719-a8f0bdeb3a29)
   - AUC 가 1에 가까울수록 좋은 성능
-  - 0.7 이상의 경우 쓸만한 성능 → 0.84
+  - 0.7 이상의 경우 쓸만한 성능 → 0.85
 
 # 4. Predict Results (실제 예측 결과)
 ### 데이터 셋 중 무작위 데이터를 골라서 예측과 예측 확률을 표시
