@@ -80,7 +80,7 @@
   - **stars** (배우)
   - **production_companies** (제작사)
   - **Category** (카테고리 (큰 장르))
-### Encoding
+### 범주형 데이터 전처리
   - 감독, 작가, 배우, 제작사의 경우 콤마를 구분으로 데이터가 존재함 ex) “봉준호, 하정우”
   - 콤마를 포함하여 학습을 진행할 경우 학습의 정확도(흥행과의 상관관계) 가 떨어질 수 있음
   - 콤마로 구분된 값 중 첫번째 값만 채택하도록 전처리 진행
@@ -89,7 +89,6 @@
     df['directors'] = df['directors'].apply(lambda x: x.split(',')[0])
     ```
         
-  - 문자열로 된 컬럼(**감독, 작가, 배우, 제작사, 카테고리**)을 **Label Encoding** 진행
 ### 예측을 위한 Profit, Hit 컬럼 생성
   - Profit : 수익 / 예산 * 100 (ROI)
   - Hit(흥행여부) : Profit ≥ 100 (True/False Boolean List)
